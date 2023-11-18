@@ -4,18 +4,18 @@ interface Props {
 }
 
 const { title } = Astro.props;
-import.meta.env.PUBLIC_FATHOM_EMBED;
+
 ---
 
 <!doctype html>
 <html lang="en">
 	<head>
 		<meta charset="UTF-8" />
-		<meta name="description" content="Astro description" />
+		<meta name="description" content="MixPod description" />
 		<meta name="viewport" content="width=device-width" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="generator" content={Astro.generator} />
-		<script src="https://cdn.usefathom.com/script.js" data-included-domains="mixpod.app" data-spa="auto" data-site=PUBLIC_FATHOM_EMBED defer></script>
+		<script src="https://cdn.usefathom.com/script.js" id="analytics" data-site={import.meta.env.PUBLIC_FATHOM_EMBED} data-included-domains="mixpod.app" data-spa="auto" defer></script>
 		<title>{title}</title>
 	</head>
 	<body>
