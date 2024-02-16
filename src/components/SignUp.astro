@@ -1,7 +1,13 @@
 <!-- Begin Outseta Email Signup Form -->
 <form action={import.meta.env.PUBLIC_OUTSETA_EMAIL_LIST_URL} method="post">
-  <label for="Email">Your best email</label>
-  <input id="Email" name="Email" type="email" required />
+  <input
+    id="Email"
+    name="Email"
+    type="email"
+    required
+    placeholder="Your best email"
+    aria-label="Email address"
+  />
 
   <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
   <div style="position: absolute; left: -5000px;" aria-hidden="true">
@@ -13,7 +19,12 @@
     />
   </div>
 
-  <input type="submit" value="Signup" data-wait="Please wait..." />
+  <input
+    class="button"
+    type="submit"
+    value="Signup"
+    data-wait="Please wait..."
+  />
 </form>
 <!--End Outseta Email Signup Form -->
 
@@ -22,18 +33,31 @@
 <style>
   form {
     display: flex;
-    flex-wrap: wrap;
-    gap: 0.2em 0.5em;
-  }
-
-  label {
-    width: 100%;
-    font-size: 0.5em;
-    opacity: 0.5;
+    align-items: center;
+    align-content: stretch;
+    gap: 1em;
   }
 
   input {
-    font-size: 0.8em;
-    padding: 0.3em;
+    padding: 1em 1em;
+    border: 0.2em solid gold;
+    font-weight: bold;
+  }
+
+  input[type="email"] {
+    flex: 1;
+  }
+
+  input[type="submit"] {
+    text-decoration: none;
+
+    background-color: floralwhite;
+    color: hotpink;
+    border-color: purple;
+  }
+
+  input[type="submit"]:hover {
+    background-color: hotpink;
+    color: floralwhite;
   }
 </style>
