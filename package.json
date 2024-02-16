@@ -12,10 +12,10 @@
     "format": "prettier --plugin-search-dir=. --write ."
   },
   "devDependencies": {
-    "@astrojs/netlify": "^3.0.4",
-    "astro": "^3.4.3",
+    "@astrojs/netlify": "^5.1.2",
+    "astro": "^4.4.0",
     "prettier": "^3.0.3",
-    "prettier-plugin-astro": "^0.12.0"
+    "prettier-plugin-astro": "^0.13.0"
   },
   "dependencies": {}
 }
