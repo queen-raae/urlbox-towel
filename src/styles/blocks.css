@@ -1,0 +1,69 @@
+nav,
+menu {
+  display: flex;
+  gap: var(--space-s);
+}
+
+menu,
+nav {
+  a {
+    text-decoration: none;
+    font-weight: bold;
+    background-color: floralwhite;
+    color: hotpink;
+    padding: 0.5em 1em;
+    border: solid 0.15em purple;
+    display: inline-block;
+    margin: var(--space-s) 0;
+    transition: all 0.3s ease-in-out;
+  }
+
+  a:hover {
+    background-color: hotpink;
+    color: floralwhite;
+  }
+}
+
+header {
+  font-size: var(--step-1);
+
+  p {
+    display: inline;
+    line-height: 1.3;
+    background-color: floralwhite;
+  }
+
+  p:first-of-type {
+    font-size: var(--step-2);
+  }
+
+  menu {
+    font-size: var(--step-0);
+  }
+}
+
+section {
+  font-size: var(--step-0);
+}
+
+form {
+  input {
+    padding: 1em 1em;
+    border: 0.2em solid gold;
+    font-weight: bold;
+  }
+
+  input[type="submit"],
+  button {
+    text-decoration: none;
+    background-color: floralwhite;
+    color: hotpink;
+    border-color: purple;
+  }
+
+  input[type="submit"]:hover,
+  button {
+    background-color: hotpink;
+    color: floralwhite;
+  }
+}

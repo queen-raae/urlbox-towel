@@ -67,16 +67,20 @@ const streams = [
 
     <section>
       <h2>Past voyages</h2>
-      {
-        streams.map((stream) => (
-          <iframe
-            src={`https://www.youtube.com/embed/${stream}`}
-            title="YouTube video player"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-            allowfullscreen
-          />
-        ))
-      }
+      <ul role="list">
+        {
+          streams.map((stream) => (
+            <li>
+              <iframe
+                src={`https://www.youtube.com/embed/${stream}`}
+                title="YouTube video player"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowfullscreen
+              />
+            </li>
+          ))
+        }
+      </ul>
     </section>
 
     <!-- <h2>Our Treasure Map</h2> -->
@@ -98,11 +102,6 @@ const streams = [
       border: solid 0.6em blanchedalmond;
       font-size: var(--step-0);
       display: block;
-    }
-
-    li a,
-    p a {
-      text-decoration: underline;
     }
   </style>
 </Layout>
