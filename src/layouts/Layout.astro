@@ -57,9 +57,10 @@ const nav = [
     max-inline-size: 100%;
   }
 
-  main {
-    max-inline-size: var(--default-width);
-    margin: 0 auto;
+  h1,
+  h2 {
+    margin-top: 1.75em;
+    margin-bottom: 0.75em;
   }
 
   nav {
@@ -70,14 +71,14 @@ const nav = [
     gap: var(--space-3xs);
   }
 
-  main > * {
-    margin: var(--space-xl) 0;
+  main {
+    max-inline-size: var(--default-width);
+    margin: 0 auto;
+    padding-bottom: var(--space-2xl);
   }
 
-  h1,
-  h2 {
-    margin-top: 1.75em;
-    margin-bottom: 0.75em;
+  main > * {
+    margin: var(--space-xl) 0;
   }
 </style>
 
