@@ -3,15 +3,21 @@ import "../styles/styles.css";
 
 interface Props {
   title: string;
+  nav?: "minimal" | "full" | "none";
 }
 
-const { title } = Astro.props;
+const { title, nav = "minimal" } = Astro.props;
 const pathname = new URL(Astro.request.url).pathname;
 
-const nav = [
-  { path: "/", label: "👈 MixPod" },
-  { path: "/about", label: "ℹ️ About" },
-];
+const navItems = [];
+
+if (nav === "minimal" || nav === "full") {
+  navItems.push({ path: "/", label: "👈 MixPod" });
+}
+
+if (nav === "full") {
+  navItems.push({ path: "/about", label: "ℹ️ About" });
+}
 ---
 
 <!doctype html>
@@ -34,7 +40,7 @@ const nav = [
   <body>
     <nav>
       {
-        nav.map((item) => {
+        navItems.map((item) => {
           if (item.path === pathname) return null;
           return <a href={item.path}>{item.label}</a>;
         })
