@@ -69,14 +69,6 @@ if (nav === "full") {
     margin-bottom: 0.75em;
   }
 
-  nav {
-    position: fixed;
-    bottom: var(--space-s);
-    left: var(--space-s);
-    display: flex;
-    gap: var(--space-3xs);
-  }
-
   main {
     max-inline-size: var(--default-width);
     margin: 0 auto;
@@ -101,5 +93,17 @@ if (nav === "full") {
     background-repeat: no-repeat, no-repeat, repeat-y;
     background-size: 100vw auto;
     min-height: 100vh;
+  }
+
+  body {
+    padding: var(--space-s);
+  }
+
+  nav {
+    position: fixed;
+    bottom: var(--space-s);
+    left: var(--space-s);
+    display: flex;
+    gap: var(--space-3xs);
   }
 </style>

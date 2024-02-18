@@ -14,7 +14,6 @@ nav {
     padding: 0.5em 1em;
     border: solid 0.15em purple;
     display: inline-block;
-    margin: var(--space-s) 0;
     transition: all 0.3s ease-in-out;
   }
 
@@ -38,6 +37,7 @@ header {
   }
 
   menu {
+    margin: var(--space-m) 0;
     font-size: var(--step-0);
   }
 }
