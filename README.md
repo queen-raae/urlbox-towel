@@ -1,4 +1,8 @@
-# Astro Starter Kit: Basics
+# twitter-towel
+
+
+
+## twitter screen-shot on a your beach towel
 
 ```sh
 npm create astro@latest -- --template basics
