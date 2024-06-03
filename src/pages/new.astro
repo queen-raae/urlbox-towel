@@ -17,7 +17,7 @@ if (Astro.request.method === "POST") {
     length: 3,
   };
   const randomName: string = uniqueNamesGenerator(customConfig);
-  const playlistData = { name: `My new ${randomName} MixPod` };
+  const playlistData = { name: `My new ${randomName} Xtowel` };
 
   const response = await db.insert(Playlist).values(playlistData);
   const playlistId = response.lastInsertRowid;

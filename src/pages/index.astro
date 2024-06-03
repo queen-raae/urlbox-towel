@@ -6,18 +6,18 @@ import Layout from "../layouts/Layout.astro";
 const playlists = await db.select().from(Playlist).orderBy(desc(Playlist.id));
 ---
 
-<Layout title="MixPod" nav="full">
+<Layout title="Xtowel" nav="full">
   <main>
     <header>
-      <h1>MixPod</h1>
+      <h1>Xtowel</h1>
       <p>Curate podcast episodes into new shareable podcast feeds!</p>
       <form method="post" action="/new" id="new"></form>
       <menu>
-        <button form="new">Create a MixPod</button>
+        <button form="new">Create a Xtowel</button>
       </menu>
     </header>
     <section>
-      <h2>Featured MixPods</h2>
+      <h2>Featured Xtowels</h2>
       <ul role="list">
         {
           playlists.map((playlist) => (

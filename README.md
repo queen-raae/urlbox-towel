@@ -1,8 +1,10 @@
-# twitter-towel
+# Xtowel
 
 
 
-## twitter screen-shot on a your beach towel
+## A towel is the most massively useful thing an interstellar hitchhiker a web developer can have
+
+Twitter screen-shot on a your beach towel
 
 ```sh
 npm create astro@latest -- --template basics
