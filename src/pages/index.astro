@@ -1,37 +1,37 @@
 ---
-import { db, Playlist, desc } from "astro:db";
+// import { db, Playlist, desc } from "astro:db";
 
 import Layout from "../layouts/Layout.astro";
 
-const playlists = await db.select().from(Playlist).orderBy(desc(Playlist.id));
+// const playlists = await db.select().from(Playlist).orderBy(desc(Playlist.id));
+// <ul role="list">
+//         {
+//           playlists.map((playlist) => (
+//             <li>
+//               <a href={`/${playlist.id}`}>{playlist.name}</a>
+//               {playlist.createdBy && (
+//                 <>
+//                   by <small>{playlist.createdBy}</small>
+//                 </>
+//               )}
+//             </li>
+//           ))
+//         }
+//       </ul>
 ---
 
 <Layout title="Xtowel" nav="full">
   <main>
     <header>
       <h1>Xtowel</h1>
-      <p>Curate podcast episodes into new shareable podcast feeds!</p>
+      <p>A towel is the most massively useful thing an interstellar hitchhiker a web developer can have!</p>
       <form method="post" action="/new" id="new"></form>
       <menu>
-        <button form="new">Create a Xtowel</button>
+        <button form="new">Create an Xtowel</button>
       </menu>
     </header>
     <section>
       <h2>Featured Xtowels</h2>
-      <ul role="list">
-        {
-          playlists.map((playlist) => (
-            <li>
-              <a href={`/${playlist.id}`}>{playlist.name}</a>
-              {playlist.createdBy && (
-                <>
-                  by <small>{playlist.createdBy}</small>
-                </>
-              )}
-            </li>
-          ))
-        }
-      </ul>
     </section>
   </main>
 </Layout>
