@@ -1,0 +1,30 @@
+---
+import { db, Comment } from "astro:db";
+
+import Layout from "../layouts/Layout.astro";
+import CommentItem from "../components/Comment.astro";
+import CommentForm from "../components/CommentForm.astro";
+
+if (Astro.request.method === "POST") {
+  const data = await Astro.request.formData();
+  const author = data.get("author");
+  const content = data.get("content");
+
+  await db.insert(Comment).values({
+    author: author as string,
+    content: content as string,
+  });
+}
+
+const comments = await db.select().from(Comment);
+---
+
+<Layout title="Comments">
+  <main>
+    <h1>Comments</h1>
+    <ul>
+      {comments.map((comment) => <CommentItem comment={comment} />)}
+    </ul>
+    <CommentForm />
+  </main>
+</Layout>

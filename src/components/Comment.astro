@@ -1,0 +1,15 @@
+---
+interface Props {
+  comment: { author: string | null; content: string | null };
+}
+const { comment } = Astro.props;
+---
+
+<li class="mb-4">
+  <blockquote>
+    <p>{comment.content}</p>
+    <footer>
+      — <cite>{comment.author}</cite>
+    </footer>
+  </blockquote>
+</li>

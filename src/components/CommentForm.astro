@@ -1,0 +1,43 @@
+---
+
+---
+
+<form method="post">
+  <label for="author"> Name </label>
+  <input
+    type="text"
+    id="author"
+    name="author"
+    placeholder="Your name"
+    required
+  />
+
+  <label for="content"> Comment </label>
+  <textarea
+    id="content"
+    name="content"
+    rows="4"
+    placeholder="Your comment"
+    required></textarea>
+
+  <button type="submit"> Submit </button>
+</form>
+
+<style>
+  form {
+    > * {
+      display: block;
+      width: var(--readable-width);
+    }
+    > label {
+      margin-top: var(--space-s);
+      margin-bottom: var(--space-3xs);
+    }
+
+    button {
+      width: auto;
+      margin-top: var(--space-s);
+      font-size: var(--step-0);
+    }
+  }
+</style>

@@ -1,0 +1,62 @@
+---
+import { db, Playlist, eq } from "astro:db";
+
+import Layout from "../../layouts/Layout.astro";
+import PlaylistForm from "../../components/PlaylistForm.astro";
+
+const { playlistId: playlistIdParam = "" } = Astro.params;
+const playlistId = parseInt(playlistIdParam);
+
+const playlists = await db
+  .select()
+  .from(Playlist)
+  .where(eq(Playlist.id, playlistId));
+
+const playlist = playlists[0];
+
+if (!playlist) return Astro.redirect("/404");
+
+if (Astro.request.method === "POST") {
+  const data = await Astro.request.formData();
+
+  await db
+    .update(Playlist)
+    .set({
+      name: data.get("name") as string,
+      description: data.get("description") as string,
+      createdBy: data.get("created-by") as string,
+    })
+    .where(eq(Playlist.id, playlistId));
+
+  return Astro.redirect(`/${playlistId}`);
+}
+---
+
+<Layout title={playlist?.name} nav="none">
+  <main>
+    <header>
+      <h1>
+        Edit MixPod Details
+        <menu><a href={`/${playlistId}/`} title="Close editor">❌</a></menu>
+      </h1>
+    </header>
+    <section>
+      <PlaylistForm playlist={playlist} />
+    </section>
+  </main>
+</Layout>
+
+<style>
+  header {
+    position: relative;
+  }
+
+  section {
+    font-size: var(--step--1);
+  }
+
+  menu {
+    display: inline-block;
+    font-size: 0.2em;
+  }
+</style>

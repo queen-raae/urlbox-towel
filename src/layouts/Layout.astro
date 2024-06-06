@@ -1,0 +1,114 @@
+---
+import "../styles/styles.css";
+
+interface Props {
+  title: string;
+  nav?: "none" | "minimal" | "full" | { path: string; label: string };
+}
+
+const { title, nav = "minimal" } = Astro.props;
+const pathname = new URL(Astro.request.url).pathname;
+
+const navItems = [];
+
+if (nav === "minimal" || nav === "full") {
+  navItems.push({ path: "/", label: "👈 MixPod" });
+}
+
+if (nav === "full") {
+  navItems.push({ path: "/about", label: "ℹ️ About" });
+}
+
+if (typeof nav === "object") {
+  navItems.push(nav);
+}
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="description" content="MixPod description" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    <script
+      is:inline
+      src="https://cdn.usefathom.com/script.js"
+      id="analytics"
+      data-site={import.meta.env.PUBLIC_FATHOM_EMBED}
+      data-included-domains="mixpod.app"
+      data-spa="auto"
+      defer></script>
+    <title>{title}</title>
+  </head>
+  <body>
+    <nav>
+      {
+        navItems.map((item) => {
+          if (item.path === pathname) return null;
+          return <a href={item.path}>{item.label}</a>;
+        })
+      }
+    </nav>
+  </body>
+</html>
+<slot />
+
+<style is:global>
+  * {
+    max-inline-size: var(--readable-width);
+    box-sizing: border-box;
+  }
+
+  html,
+  body,
+  ul,
+  ol {
+    max-inline-size: 100%;
+  }
+
+  main {
+    max-inline-size: var(--default-width);
+    margin: 0 auto;
+    padding-bottom: var(--space-2xl);
+  }
+
+  main > * {
+    margin: var(--space-xl) 0;
+  }
+
+  h1,
+  h2 {
+    margin-top: 1em;
+    margin-bottom: 0.75em;
+  }
+</style>
+
+<style>
+  html {
+    background-color: floralwhite;
+    background-image: url("/assets/background-top.png"),
+      url("/assets/background-bottom.png"),
+      url("/assets/background-mid-orange.png");
+    background-position:
+      top center,
+      bottom center,
+      center center;
+    background-repeat: no-repeat, no-repeat, repeat-y;
+    background-size: 100vw auto;
+    min-height: 100vh;
+  }
+
+  body {
+    padding: var(--space-s);
+  }
+
+  nav {
+    position: fixed;
+    bottom: var(--space-s);
+    left: var(--space-s);
+    display: flex;
+    gap: var(--space-3xs);
+  }
+</style>

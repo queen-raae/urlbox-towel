@@ -1,0 +1,39 @@
+---
+import { db, Playlist, desc } from "astro:db";
+
+import Layout from "../layouts/Layout.astro";
+
+const playlists = await db.select().from(Playlist).orderBy(desc(Playlist.id));
+---
+
+<Layout title="MixPod" nav="full">
+  <main>
+    <header>
+      <h1>MixPod</h1>
+      <p>Curate podcast episodes into new shareable podcast feeds!</p>
+      <form method="post" action="/new" id="new"></form>
+      <menu>
+        <button form="new">Create a MixPod</button>
+      </menu>
+    </header>
+    <section>
+      <h2>Featured MixPods</h2>
+      <ul role="list">
+        {
+          playlists.map((playlist) => (
+            <li>
+              <a href={`/${playlist.id}`}>{playlist.name}</a>
+              {playlist.createdBy && (
+                <>
+                  by <small>{playlist.createdBy}</small>
+                </>
+              )}
+            </li>
+          ))
+        }
+      </ul>
+    </section>
+  </main>
+</Layout>
+
+<style></style>
