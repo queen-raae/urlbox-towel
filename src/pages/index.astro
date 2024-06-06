@@ -4,30 +4,49 @@ import { db, Screenshot, desc } from "astro:db";
 import Layout from "../layouts/Layout.astro";
 
 const towels = await db.select().from(Screenshot).orderBy(desc(Screenshot.id));
-
 ---
 
 <Layout title="Xtowel" nav="full">
   <main>
     <header>
       <h1>Twowels, TwitterTowels, XTowe, Towelie?!?!</h1>
-      <p>A towel is the most massively useful thing <s>an interstellar hitchhiker</s> a web developer can have!</p>
-      <form method="post" action="/new" id="new"></form>
-      <menu>
-        <button form="new">Create an Xtowel</button>
-      </menu>
+      <p>
+        A towel is the most massively useful thing <s
+          >an interstellar hitchhiker</s
+        > a web developer can have!
+      </p>
     </header>
+    <form method="post" action="/new">
+      <input
+        type="text"
+        name="tweetUrl"
+        placeholder="https://x.com/raae/status/1797182382337892473"
+        required
+      />
+      <menu>
+        <button class="button">Create towel</button>
+      </menu>
+    </form>
     <section>
       <h2>Featured Towels</h2>
       <div role="list">
-        {
-          towels.map((towel) => (
-            <img src={towel.renderUrl} />
-          ))
-        }
+        {towels.map((towel) => <img src={towel.renderUrl} />)}
       </div>
     </section>
   </main>
 </Layout>
 
-<style></style>
+<style>
+  form {
+    display: flex;
+    align-items: center;
+    align-content: stretch;
+    gap: 1em;
+    font-size: var(--step--1);
+    align-items: stretch;
+  }
+
+  input {
+    flex: 1;
+  }
+</style>
