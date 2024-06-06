@@ -9,7 +9,7 @@ menu {
     background-color: floralwhite;
     color: hotpink;
     padding: 0.5em 1em;
-    border: solid 0.15em purple;
+    border: solid 0.2em purple;
     display: inline-block;
     transition: all 0.3s ease-in-out;
 
@@ -53,10 +53,10 @@ form {
   }
 
   menu {
-    *:first-child {
+    > *:first-child {
       margin-left: auto;
     }
-    *:not(:last-child) {
+    > *:not(:last-child) {
       border-color: transparent;
     }
   }

@@ -1,12 +1,43 @@
 ---
-import { db } from "astro:db";
+import { db, Screenshot } from "astro:db";
+import Urlbox, { type RenderOptions } from "urlbox";
 
+const urlbox = Urlbox(
+  import.meta.env.PUBLIC_URLBOX_KEY,
+  import.meta.env.URLBOX_SECRET_KEY
+);
+
+let renderUrl = null;
 
 if (Astro.request.method === "POST") {
-  console.log("POST request received");
+  const data = await Astro.request.formData();
+  const tweetUrl = data.get("tweetUrl") as string;
+
+  // Set your options
+  const options: RenderOptions = {
+    url: tweetUrl,
+    format: "png",
+    selector: "article",
+    width: 800,
+    css: "* {\n color: black !important;  \n background-color: transparent !important;\n}",
+    hide_selector:
+      "#layers, article > div > div > div:last-child > div:last-child",
+    retina: true,
+    transparent: true,
+    force: true,
+  };
+
+  renderUrl = urlbox.generateRenderLink(options);
+
+  await db.insert(Screenshot).values({
+    tweetUrl: tweetUrl,
+    renderUrl: renderUrl,
+  });
+
+  console.log("POST request received", renderUrl);
 }
 
 return Astro.redirect(`/`);
 ---
 
-NOOP
+<!-- NOOP -->
