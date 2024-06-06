@@ -1,37 +1,31 @@
 ---
-import { db, Playlist, desc } from "astro:db";
+import { db, Screenshot, desc } from "astro:db";
 
 import Layout from "../layouts/Layout.astro";
 
-const playlists = await db.select().from(Playlist).orderBy(desc(Playlist.id));
+const towels = await db.select().from(Screenshot).orderBy(desc(Screenshot.id));
+
 ---
 
-<Layout title="MixPod" nav="full">
+<Layout title="Xtowel" nav="full">
   <main>
     <header>
-      <h1>MixPod</h1>
-      <p>Curate podcast episodes into new shareable podcast feeds!</p>
+      <h1>Twowels, TwitterTowels, XTowe, Towelie?!?!</h1>
+      <p>A towel is the most massively useful thing <s>an interstellar hitchhiker</s> a web developer can have!</p>
       <form method="post" action="/new" id="new"></form>
       <menu>
-        <button form="new">Create a MixPod</button>
+        <button form="new">Create an Xtowel</button>
       </menu>
     </header>
     <section>
-      <h2>Featured MixPods</h2>
-      <ul role="list">
+      <h2>Featured Towels</h2>
+      <div role="list">
         {
-          playlists.map((playlist) => (
-            <li>
-              <a href={`/${playlist.id}`}>{playlist.name}</a>
-              {playlist.createdBy && (
-                <>
-                  by <small>{playlist.createdBy}</small>
-                </>
-              )}
-            </li>
+          towels.map((towel) => (
+            <img src={towel.renderUrl} />
           ))
         }
-      </ul>
+      </div>
     </section>
   </main>
 </Layout>

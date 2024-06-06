@@ -3,23 +3,18 @@ import Layout from "../layouts/Layout.astro";
 import SignUp from "../components/SignUp.astro";
 
 const streams = [
-  "vIJeL9Mu31I?",
-  "2KWprkl0CVo",
-  "ES_ZDVQfngo",
-  "UiG7S8pDk4E",
-  "SQ8URCwbW5g",
-  "ZWhzBS0PJQg",
+  "oslrnHwClx8",
+  "LzSyS7UQFXQ",
 ];
 ---
 
-<Layout title="About MixPod">
+<Layout title="About Twowels, TwitterTowels, XTowe, Towelie?!?!">
   <main>
     <header>
-      <h1>About MixPod</h1>
+      <h1>About Twowels, TwitterTowels, XTowe, Towelie?!?!</h1>
 
       <p>
-        MixPod is an exploration of what can be done with no client-side
-        javascript and open web standards such as RSS.
+        Twowels, TwitterTowels, XTowe, Towelie?!?! is an exploration of what can be done with screenshot API Urlbox.
       </p>
     </header>
 
@@ -30,12 +25,11 @@ const streams = [
       </h2>
 
       <iframe
-        src="https://www.youtube.com/embed/3vlTNYwPCJI?si=exVvZc-kSWYVV5Sm"
+        src={`https://www.youtube.com/embed/${streams[0]}`}
         title="YouTube video player"
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
         allowfullscreen></iframe>
 
-      <p>every other Saturday at 11:00 CET</p>
     </section>
 
     <section>
@@ -55,13 +49,6 @@ const streams = [
         <li>
           Captain Ola <a href="https://twitter.com/OlaHolstVea">@OlaHolstVea</a>
         </li>
-        <li>The Pirate Princess</li>
-        <li>
-          Ruler of the chat: AK <a href="https://twitter.com/ja_gatka
- "
-            >@ja_gatka</a
-          >
-        </li>
       </ul>
     </section>
 
@@ -69,7 +56,7 @@ const streams = [
       <h2>Past voyages</h2>
       <ul role="list">
         {
-          streams.map((stream) => (
+          streams.slice(1).map((stream) => (
             <li>
               <iframe
                 src={`https://www.youtube.com/embed/${stream}`}

@@ -1,4 +1,8 @@
-# Astro Starter Kit: Basics
+# Urlbox Towel
+
+## A towel is the most massively useful thing <s>an interstellar hitchhiker</s> a web developer can have
+
+Get your Twitter screen-shot on a beach towel
 
 ```sh
 npm create astro@latest -- --template basics

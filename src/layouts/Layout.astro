@@ -12,7 +12,7 @@ const pathname = new URL(Astro.request.url).pathname;
 const navItems = [];
 
 if (nav === "minimal" || nav === "full") {
-  navItems.push({ path: "/", label: "👈 MixPod" });
+  navItems.push({ path: "/", label: "👈 Home" });
 }
 
 if (nav === "full") {
@@ -90,13 +90,13 @@ if (typeof nav === "object") {
     background-color: floralwhite;
     background-image: url("/assets/background-top.png"),
       url("/assets/background-bottom.png"),
-      url("/assets/background-mid-orange.png");
+      url("/assets/background-mid-1.png");
     background-position:
       top center,
       bottom center,
-      center center;
+      center right;
     background-repeat: no-repeat, no-repeat, repeat-y;
-    background-size: 100vw auto;
+    /* background-size: 100vw auto; */
     min-height: 100vh;
   }
 
